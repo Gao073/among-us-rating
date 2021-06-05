@@ -1,3 +1,19 @@
 <h1>こんにちは、<%= current_user.username %>さん</h1>
 <p>現在のインポスターレート: <%= current_user.imposter_rate %></p>
 <p>現在の船員レート: <%= current_user.crew_rate %></p>
+
+<h2>過去のマッチ一覧</h2>
+<div class="matches">
+<% @matches.each do |match| %>
+<div class="match">
+	<h3>マッチID: <%= match.id %></h3>
+	<p>マッチ作成日時: <%= match.created_at %></p>
+	<p>マッチ作成者ID: <%= match.creator_id %></p>
+	<p>マッチ作成者: まだ表示できない</p>
+	<p>マッチ参加者一覧: まだ表示できない</p>
+	<p>インポスターレート(平均): <%= match.imposter_rate_average %></p>
+	<p>船員レート(平均): <%= match.crew_rate_average %></p>
+	<p>インポスター勝利？ <%= match.imposter_win %></p>
+</div>
+<% end %>
+</div>

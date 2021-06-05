@@ -1,8 +1,7 @@
 class TopController < ApplicationController
 	def index
-		p current_user
 	end
 	def show
-
+		@matches = Match.all.order(id: "DESC")
 	end
 end
