@@ -1,1 +1,17 @@
-index.html
+<h1>ユーザーランキング</h1>
+
+<h2>インポスターレート上位</h2>
+
+<% @imposter_top_users.each do |i| %>
+<h3><%= i.username %></h3>
+<p>インポスターレート <%= i.imposter_rate.to_i %></p>
+<p>船員レート(参考) <%= i.crew_rate.to_i %></p>
+<% end %>
+
+<h2>船員レート上位</h2>
+
+<% @crew_top_users.each do |i| %>
+<h3><%= i.username %></h3>
+<p>船員レート <%= i.crew_rate.to_i %></p>
+<p>インポスターレート(参考) <%= i.imposter_rate.to_i %></p>
+<% end %>

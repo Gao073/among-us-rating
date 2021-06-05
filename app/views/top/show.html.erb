@@ -4,6 +4,7 @@
 <h2>新しいマッチを作成</h2>
 <%= link_to "マッチ作成ページへ", new_match_path %>
 <h2>過去のマッチ一覧</h2>
+<p>現在、自分が参加したマッチだけの絞り込みはできません</p>
 <div class="matches">
 <% @matches.each do |match| %>
 <div class="match">
@@ -12,8 +13,8 @@
 	<p>マッチ作成者ID: <%= match.creator_id %></p>
 	<p>マッチ作成者: <%= match.creator_id %></p>
 	<p>マッチ参加者一覧: まだ表示できない</p>
-	<p>インポスターレート(平均): <%= match.imposter_rate_average %></p>
-	<p>船員レート(平均): <%= match.crew_rate_average %></p>
+	<p>インポスターレート(平均): <%= match.imposter_rate_average.to_i %></p>
+	<p>船員レート(平均): <%= match.crew_rate_average.to_i %></p>
 	<% point = (16 - (match.imposter_rate_average - match.crew_rate_average) * 0.04).to_i %>
 	<p>インポスター勝利？ <%= match.imposter_win %></p>
 	<p>移動レート: <% if match.imposter_win %>船員 → インポスター<% else %> インポスター → 船員<% end %> <%= point %> ポイント</p>	
