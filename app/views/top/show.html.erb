@@ -1,7 +1,8 @@
 <h1>こんにちは、<%= current_user.username %>さん</h1>
 <p>現在のインポスターレート: <%= current_user.imposter_rate %></p>
 <p>現在の船員レート: <%= current_user.crew_rate %></p>
-
+<h2>新しいマッチを作成</h2>
+<%= link_to "マッチ作成ページへ", matches_new_path %>
 <h2>過去のマッチ一覧</h2>
 <div class="matches">
 <% @matches.each do |match| %>

@@ -1,0 +1,15 @@
+<h1>マッチ結果の登録</h1>
+<p>以下に情報を入力し、試合結果の登録をしてください</p>
+<p>マッチの編集機能がまだ無いため、情報の誤入力をした場合は管理者に問い合わせをお願いします</p>
+<p>将来のアップデートとして、サイト上でのマッチ参加者の募集・各自での参加登録などの機能が追加される予定です</p>
+<p>それまでは、ホストのみが参加者の登録をすることができます</p>
+
+<h2>マッチ結果の登録</h2>
+<%= form_with model: @match do |form| %>
+	<%= form.label :imposter_user_ids, "インポスターを選ぶ" %>
+	<%= form.collection_check_boxes :imposter_user_ids, User.all, :id, :username %><br>
+		<%= form.label :crew_user_ids, "船員を選ぶ" %>
+	<%= form.collection_check_boxes :crew_user_ids, User.all, :id, :username %><br>
+  勝者：<%= form.radio_button :imposter_win, true, checked: true %>インポスター<%= form.radio_button :imposter_win, false %>船員<br>
+  <%= form.submit "保存" %>
+<% end %>
