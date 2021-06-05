@@ -5,6 +5,8 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.create(match_params)
+    binding.pry
+    imposter_
   end
 
   def update
@@ -17,7 +19,6 @@ class MatchesController < ApplicationController
   end
   private
   def match_params
-    binding.pry
-    params.require(:match).permit(:impster_win, imposter_user_ids: [], crew_user_ids: []).merge(creator_id: current_user.id)
+    params.require(:match).permit(:imposter_win, imposter_user_ids: [], crew_user_ids: []).merge(creator_id: current_user.id)
   end
 end
