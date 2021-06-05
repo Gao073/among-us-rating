@@ -13,7 +13,9 @@
 	<p>マッチ参加者一覧: まだ表示できない</p>
 	<p>インポスターレート(平均): <%= match.imposter_rate_average %></p>
 	<p>船員レート(平均): <%= match.crew_rate_average %></p>
+	<% point = (match.imposter_rate_average - match.crew_rate_average).abs * 0.04 + 16 %>
 	<p>インポスター勝利？ <%= match.imposter_win %></p>
+	<p>移動レート: <% if match.imposter_win %>船員 → インポスター<% else %> インポスター → 船員<% end %> <%= point %> ポイント</p>	
 </div>
 <% end %>
 </div>
